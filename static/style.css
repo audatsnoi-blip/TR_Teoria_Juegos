@@ -1,0 +1,238 @@
+* {
+  box-sizing: border-box;
+  }
+
+body {
+margin: 0;
+font-family: Arial, Helvetica, sans-serif;
+background: #101827;
+color: #f1f5f9;
+}
+
+.contenidor {
+width: 85%;
+max-width: 1000px;
+margin: 0 auto;
+padding: 50px 0;
+}
+
+/* CAPÇALERA */
+
+header {
+text-align: center;
+margin-bottom: 40px;
+}
+
+.icona {
+font-size: 50px;
+margin-bottom: 15px;
+}
+
+h1 {
+margin: 0;
+font-size: 38px;
+color: #ffffff;
+}
+
+.subtitol {
+margin-top: 12px;
+color: #94a3b8;
+font-size: 17px;
+}
+
+/* TARGETES */
+
+.targeta {
+background: #182235;
+border: 1px solid #26344d;
+border-radius: 16px;
+padding: 35px;
+margin-bottom: 30px;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+h2 {
+margin-top: 0;
+margin-bottom: 28px;
+font-size: 24px;
+color: #ffffff;
+}
+
+/* CAMPS */
+
+.camp {
+margin-bottom: 22px;
+text-align: left;
+}
+
+.camp label {
+display: block;
+font-weight: bold;
+font-size: 16px;
+margin-bottom: 7px;
+}
+
+.camp p {
+margin: 0 0 9px 0;
+color: #94a3b8;
+font-size: 13px;
+}
+
+input {
+width: 100%;
+padding: 13px 14px;
+border: 1px solid #334155;
+border-radius: 9px;
+background: #0f172a;
+color: white;
+font-size: 16px;
+outline: none;
+}
+
+input:focus {
+border-color: #60a5fa;
+}
+
+/* BOTÓ */
+
+button {
+width: 100%;
+margin-top: 10px;
+padding: 15px;
+border: none;
+border-radius: 9px;
+background: #2563eb;
+color: white;
+font-size: 17px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.2s;
+}
+
+button:hover {
+background: #1d4ed8;
+transform: translateY(-1px);
+}
+
+/* RESULTATS */
+
+.descripcio-resultats {
+color: #94a3b8;
+margin-top: -15px;
+margin-bottom: 25px;
+}
+
+.generacio {
+margin-top: 25px;
+padding: 20px;
+background: #111a2b;
+border-radius: 12px;
+border: 1px solid #26344d;
+}
+
+.generacio h3 {
+margin-top: 0;
+margin-bottom: 15px;
+color: #60a5fa;
+}
+
+/* ESTRATÈGIES */
+
+.llista-estrategies {
+display: grid;
+gap: 8px;
+}
+
+.estrategia {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 12px 15px;
+background: #1e293b;
+border-radius: 8px;
+}
+
+.estrategia span {
+color: #e2e8f0;
+}
+
+.estrategia strong {
+background: #2563eb;
+padding: 5px 11px;
+border-radius: 20px;
+font-size: 14px;
+}
+
+/* PEU DE PÀGINA */
+
+footer {
+text-align: center;
+color: #64748b;
+font-size: 13px;
+margin-top: 35px;
+}
+
+.aviso {
+margin-top: 25px;
+margin-bottom: 20px;
+padding: 15px 18px;
+background: #332b18;
+border: 1px solid #665528;
+border-radius: 10px;
+text-align: left;
+color: #facc15;
+}
+
+.aviso p {
+margin: 6px 0 0 0;
+color: #cbd5e1;
+font-size: 14px;
+line-height: 1.5;
+}
+
+/* Botó per veure les generacions intermèdies */
+
+.desplegable {
+margin-top: 25px;
+margin-bottom: 25px;
+}
+
+.desplegable summary {
+cursor: pointer;
+padding: 17px 20px;
+background: #1e293b;
+border: 1px solid #3b82f6;
+border-radius: 12px;
+color: #60a5fa;
+font-weight: bold;
+font-size: 16px;
+text-align: center;
+transition: all 0.25s ease;
+list-style: none;
+}
+
+.desplegable summary:hover {
+background: #2563eb;
+color: white;
+transform: translateY(-2px);
+box-shadow: 0 6px 18px rgba(37, 99, 235, 0.25);
+}
+
+.desplegable summary::after {
+content: " ↓";
+font-size: 18px;
+}
+
+.desplegable[open] summary::after {
+content: " ↑";
+}
+
+.desplegable[open] summary {
+background: #2563eb;
+color: white;
+margin-bottom: 20px;
+}
+
+.intermedia {
+margin-top: 15px;
+}

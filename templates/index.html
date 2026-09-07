@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Simulador del Dilema del Presoner</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+<div class="contenidor">
+
+
+    <header>
+
+        <h1>Simulador del Dilema del Presoner</h1>
+
+    </header>
+
+
+    <!-- CONFIGURACIÓ -->
+
+    <section class="targeta">
+
+        <h2>Configuració de la simulació</h2>
+
+
+        <form method="POST">
+
+
+            <div class="camp">
+
+                <label>Jugadors per estratègia</label>
+
+                <p>
+                    Nombre de jugadors que començarà amb cada estratègia.
+                </p>
+
+                <input
+                    type="number"
+                    name="jugadors_per_estrategia"
+                    value="10"
+                    min="1"
+                    required
+                >
+
+            </div>
+
+
+            <div class="camp">
+
+                <label>Rondes per partida</label>
+
+                <p>
+                    Nombre de rondes que jugarà cada parella de jugadors.
+                </p>
+
+                <input
+                    type="number"
+                    name="rondes_per_partida"
+                    value="20"
+                    min="1"
+                    required
+                >
+
+            </div>
+
+
+            <div class="camp">
+
+                <label>Generacions</label>
+
+                <p>
+                    Nombre de generacions que durarà la simulació.
+                </p>
+
+                <input
+                    type="number"
+                    name="generacions"
+                    value="3"
+                    min="1"
+                    required
+                >
+
+            </div>
+
+
+            <div class="camp">
+
+                <label>Jugadors eliminats</label>
+
+                <p>
+                    Nombre de jugadors eliminats al final de cada generació.
+                </p>
+
+                <input
+                    type="number"
+                    name="jugadors_eliminats"
+                    value="2"
+                    min="1"
+                    required
+                >
+
+            </div>
+
+
+            <div class="aviso">
+
+                <strong> Avís sobre el temps de simulació</strong>
+
+                <p>
+                    Com més rondes i generacions seleccionis, més temps
+                    necessitarà la simulació per completar-se.
+                </p>
+
+            </div>
+
+
+            <button type="submit">
+                ▶ Executar simulació
+            </button>
+
+
+        </form>
+
+    </section>
+
+
+    {% if evolucio %}
+
+
+    <!-- RESULTATS -->
+
+    <section class="targeta resultats">
+
+
+        <h2>📊 Resultats de la simulació</h2>
+
+
+        <p class="descripcio-resultats">
+
+            Evolució de les diferents estratègies al llarg de les generacions.
+
+        </p>
+
+
+        <!-- PRIMERA GENERACIÓ -->
+
+        <div class="generacio">
+
+
+            <h3>Generació 1</h3>
+
+
+            <div class="llista-estrategies">
+
+
+                {% for estrategia, quantitat in evolucio[0].items() %}
+
+
+                <div class="estrategia">
+
+                    <span>{{ estrategia }}</span>
+
+                    <strong>{{ quantitat }}</strong>
+
+                </div>
+
+
+                {% endfor %}
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- GENERACIONS INTERMÈDIES -->
+
+        {% if evolucio|length > 2 %}
+
+
+        <details class="desplegable">
+
+
+            <summary>
+                ▼ Veure generacions intermèdies
+            </summary>
+
+
+            {% for i in range(1, evolucio|length - 1) %}
+
+
+            <div class="generacio intermedia">
+
+
+                <h3>Generació {{ i + 1 }}</h3>
+
+
+                <div class="llista-estrategies">
+
+
+                    {% for estrategia, quantitat in evolucio[i].items() %}
+
+
+                    <div class="estrategia">
+
+                        <span>{{ estrategia }}</span>
+
+                        <strong>{{ quantitat }}</strong>
+
+                    </div>
+
+
+                    {% endfor %}
+
+
+                </div>
+
+
+            </div>
+
+
+            {% endfor %}
+
+
+        </details>
+
+
+        {% endif %}
+
+
+        <!-- ÚLTIMA GENERACIÓ -->
+
+        {% if evolucio|length > 1 %}
+
+
+        <div class="generacio ultima">
+
+
+            <h3>🏆 Generació {{ evolucio|length }}</h3>
+
+
+            <div class="llista-estrategies">
+
+
+                {% for estrategia, quantitat in evolucio[-1].items() %}
+
+
+                <div class="estrategia">
+
+
+                    <span>{{ estrategia }}</span>
+
+                    <strong>{{ quantitat }}</strong>
+
+
+                </div>
+
+
+                {% endfor %}
+
+
+            </div>
+
+
+        </div>
+
+
+        {% endif %}
+
+
+    </section>
+
+
+    {% endif %}
+
+
+    <footer>
+
+        <p>
+            Treball de Recerca · Teoria de Jocs
+        </p>
+
+    </footer>
+
+
+</div>
+
+
+</body>
+
+</html>
